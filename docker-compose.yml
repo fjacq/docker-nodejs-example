@@ -1,0 +1,11 @@
+webapp:
+   build: ./webapp
+   ports:
+     - "9000:9000"
+
+proxy:
+  build: ./nginx
+  ports:
+    - "80:80"
+  links:
+    - webapp:webapp
