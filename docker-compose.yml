@@ -1,5 +1,7 @@
 webapp:
    build: ./webapp
+   volumes:
+     - ./webapp/:/app/
    ports:
      - "9000:9000"
 

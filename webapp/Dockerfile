@@ -1,12 +1,7 @@
-FROM gliderlabs/alpine:3.1
+FROM google/nodejs
 
-RUN apk-install nodejs
-RUN npm install pm2 -g
-RUN pm2 dump
-
-ADD . /app
-RUN cd app/ && npm install
+VOLUME /app
 
 EXPOSE 9000
 
-CMD ["pm2", "start", "app/index.js", "--no-daemon"]
+CMD ["node", "/app/index.js"]
